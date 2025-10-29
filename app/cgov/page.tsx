@@ -35,8 +35,7 @@ export default function CgovPage() {
         <Container>
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">COMING SOON</h2>
           <p className="text-gray-300 max-w-2xl">
-            The Cardano Governance Platform section is currently under development. 
-            Check back soon for more information about this exciting component of the NOMOS ecosystem.
+            Carefully crafted governance tools
           </p>
         </Container>
       </div>

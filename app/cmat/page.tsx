@@ -58,24 +58,21 @@ export default function CmatPage() {
             {/* Card 1 - Block at top */}
             <Card title="Purpose" blockPosition="top">
               <p>
-                The Cardano Multi Asset Treasury (CMAT) provides a framework for managing 
-                decentralized treasury assets on the Cardano blockchain.
+                To improve Treasury sustainability by introducing a Multi Asset Treasury, allowing the Cardano Treasury to not only receive and distribute Ada but to handle a wide rnge of assets.
               </p>
             </Card>
             
             {/* Card 2 - Block in middle */}
             <Card title="Features" blockPosition="middle">
               <p>
-                CMAT enables multi-asset management, transparent governance, and secure 
-                distribution of funds across various initiatives within the ecosystem.
+                CMAT will introduce specific features which ensure a secure and stable management of treasury assets, while staying fully compatible to Cardano onchain governance (CIP1694)
               </p>
             </Card>
             
             {/* Card 3 - Block at bottom */}
             <Card title="Benefits" blockPosition="bottom">
               <p>
-                By implementing CMAT, organizations can achieve greater financial autonomy, 
-                community participation, and sustainable funding models.
+                By implementing CMAT, the Treasury enables a wide range of economic possibilites and yet untapped opportunities
               </p>
             </Card>
           </div>

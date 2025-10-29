@@ -33,7 +33,7 @@ export default function Footer() {
           {/* Copyright */}
           <div className="mt-8 pt-8 border-t border-gray-800 flex justify-center">
             <p className="text-gray-500 text-sm">
-              © {currentYear} NOMOS GUILD. BY MESH & SIDAN LAB
+              NOMOS GUILD | BY MESH & SIDAN LAB
             </p>
           </div>
         </div>
