@@ -1,6 +1,6 @@
-import Container from "./components/Container";
+import Container from "../../components/Container";
 
-export default function Page() {
+export default function Home() {
   return (
     <div className="min-h-[calc(100vh-4rem-200px)] bg-black pt-16 md:pt-24"> {/* Added top padding */}
       <Container className="h-full">
@@ -12,7 +12,7 @@ export default function Page() {
               </h1>
               <p className="text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-300 overflow-hidden text-ellipsis max-w-full">
                 <span className="whitespace-nowrap sm:whitespace-normal md:whitespace-nowrap">
-                  BUILDING GOVERNANCE 3.0 ON CARDANO 
+                  BUILDING GOVERNANCE 3.0 ON CARDANO.
                 </span>
               </p>
               <div className="h-48 md:h-64" />

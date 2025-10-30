@@ -81,6 +81,9 @@ export default function Header() {
           
           {/* Desktop menu */}
           <nav className="hidden md:flex md:space-x-10">
+            <Link href="/about" className="text-lg font-medium text-black hover:text-gray-700">
+              ABOUT
+            </Link>
             <Link href="/cmat" className="text-lg font-medium text-black hover:text-gray-700">
               CMAT
             </Link>
@@ -108,6 +111,13 @@ export default function Header() {
       >
         <Container>
           <div className="py-6 space-y-4">
+            <Link 
+              href="/about" 
+              className="block py-3 text-xl font-medium text-black hover:bg-gray-100 rounded-md"
+              onClick={() => setIsOpen(false)}
+            >
+              ABOUT
+            </Link>
             <Link 
               href="/cmat" 
               className="block py-3 text-xl font-medium text-black hover:bg-gray-100 rounded-md"

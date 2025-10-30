@@ -1,7 +1,7 @@
 import Container from "../components/Container";
 import SimpleDivider from "../components/SimpleDivider";
 
-export default function CgovPage() {
+export default function Page() {
   return (
     <div className="bg-black">
       {/* Hero Section - Added top padding */}
@@ -27,9 +27,16 @@ export default function CgovPage() {
         </Container>
       </div>
       
-      {/* Simple white bar divider - full width */}
-      <SimpleDivider width="full" thickness="medium" className="my-8" />
-      
+      {/* Fibonacci blocks SVG - full width */}
+      <div className="w-full">
+        <img 
+          src="/fiboblockz.svg" 
+          alt="Fibonacci Blocks Pattern" 
+          className="w-full h-auto"
+        />
+      </div>
+         {/* Simple white bar divider - full width */}
+      <SimpleDivider width="full" thickness="thin" className="my-12" />   
       {/* Content placeholder */}
       <div className="py-8">
         <Container>

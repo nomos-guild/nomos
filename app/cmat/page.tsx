@@ -4,7 +4,7 @@ import TaskCard from "../components/TaskCard";
 import ObjectiveCard from "../components/ObjectiveCard";
 import SimpleDivider from "../components/SimpleDivider";
 
-export default function CmatPage() {
+export default function Page() {
   return (
     <div className="bg-black">
       {/* Hero Section - Added top padding */}
@@ -139,7 +139,7 @@ export default function CmatPage() {
                   assignees={["Hinson", "Felix"]}
                   date="November 8"
                   links={[
-                    { label: "Agenda", url: "https://ambassador-workshop.netlify.app/agenda/" }
+                    { label: "Event", url: "https://ambassador-workshop.netlify.app/agenda/" }
                   ]}
                 >
                   Prepare and host a CMAT session at the Cardano Ambassadors workshop
