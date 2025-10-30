@@ -86,7 +86,7 @@ export default function Page() {
                   owner="Mesh"
                   href="https://github.com/MeshJS/mesh"
                 >
-                  Mesh SDK, a powerful TS toolset including governance transaction features
+                  Mesh SDK, a powerful Cardano SDK in TS which includes various governance functions
                 </TaskCard>
                 <TaskCard 
                   title="Crowdfund Smart Contract" 
