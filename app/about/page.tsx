@@ -122,13 +122,13 @@ export default function Page() {
                   owner="Mesh"
                   href="https://github.com/MeshJS/multisig"
                 >
-                  Multisig platform for DRep's
+                  A multi-signature platform with governance features for DRep teams and collectives
                 </TaskCard>
                 <TaskCard 
                   title="CGOV" 
                   owner="NOMOS"
                 >
-                  A platform with rich features to engage at Cardano onchain governance
+                  A governance platform with rich features to allow anyone to easily engage in Cardano Governance
                 </TaskCard>
               </div>
             </div>

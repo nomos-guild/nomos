@@ -11,6 +11,7 @@ type TaskCardProps = {
   assignees?: string[];
   date?: string;
   links?: { label: string; url: string }[];
+  onClick?: () => void; // optional click handler
 };
 
 export default function TaskCard({ 
@@ -21,7 +22,8 @@ export default function TaskCard({
   href,
   assignees,
   date,
-  links
+  links,
+  onClick
 }: TaskCardProps) {
   // Status styles
   const statusStyles = {
@@ -89,14 +91,20 @@ export default function TaskCard({
       </div>
   );
 
+  const isClickable = href || onClick;
+
   return (
-    <div className={`border border-gray-800 bg-black transition-colors duration-300 transform transition-transform ease-in-out duration-300 hover:scale-[1.02] ${href ? 'hover:border-white cursor-pointer' : ''}`}>
+    <div className={`border border-gray-800 bg-black transition-colors duration-300 transform ease-in-out hover:scale-[1.02] ${isClickable ? 'hover:border-white cursor-pointer' : ''}`}>
       {href ? (
         <a href={href} target="_blank" rel="noopener noreferrer" className="block focus:outline-none focus:ring-2 focus:ring-white">
           {CardInner}
         </a>
+      ) : onClick ? (
+        <button onClick={onClick} className="block w-full text-left focus:outline-none focus:ring-2 focus:ring-white">
+          {CardInner}
+        </button>
       ) : (
-          CardInner
+        CardInner
       )}
     </div>
   );

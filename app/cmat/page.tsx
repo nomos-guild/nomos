@@ -1,10 +1,35 @@
+"use client";
+
+import { useState } from "react";
 import Container from "../components/Container";
 import Card from "../components/Card";
 import TaskCard from "../components/TaskCard";
-import ObjectiveCard from "../components/ObjectiveCard";
 import SimpleDivider from "../components/SimpleDivider";
+import SidePanel from "../components/SidePanel";
+
+type TaskData = {
+  title: string;
+  description: string;
+  status: "done" | "in_progress" | "planned" | "upcoming";
+  assignees?: string[];
+  date?: string;
+  links?: { label: string; url: string }[];
+  additionalContent?: string; // HTML content for additional details
+};
 
 export default function Page() {
+  const [isPanelOpen, setIsPanelOpen] = useState(false);
+  const [selectedTask, setSelectedTask] = useState<TaskData | null>(null);
+
+  const handleTaskClick = (task: TaskData) => {
+    setSelectedTask(task);
+    setIsPanelOpen(true);
+  };
+
+  const handleClosePanel = () => {
+    setIsPanelOpen(false);
+  };
+
   return (
     <div className="bg-black">
       {/* Hero Section - Added top padding */}
@@ -107,6 +132,32 @@ export default function Page() {
                     { label: "Draft", url: "https://docs.google.com/document/d/1SCxDwppfsLyLpT-Rt5lmCQI04fP_dlwsVq2_jOBldm8/edit?tab=t.0" },
                     { label: "Forum", url: "https://forum.cardano.org/t/cardano-multi-asset-treasury-cmat/149984" }
                   ]}
+                  onClick={() => handleTaskClick({
+                    title: "Draft & Publish CMAT Forum post",
+                    description: "Draft & publish an initial CMAT introduction post on the Cardano Forum",
+                    status: "done",
+                    assignees: ["Hinson", "Felix"],
+                    date: "September",
+                    links: [
+                      { label: "Draft", url: "https://docs.google.com/document/d/1SCxDwppfsLyLpT-Rt5lmCQI04fP_dlwsVq2_jOBldm8/edit?tab=t.0" },
+                      { label: "Forum", url: "https://forum.cardano.org/t/cardano-multi-asset-treasury-cmat/149984" }
+                    ],
+                    additionalContent: `
+                      <h4>Context & Rationale</h4>
+                      <p>This forum post serves as the initial public introduction to the Cardano Multi-Asset Treasury (CMAT) initiative, providing the community with background information and the motivation behind the proposal.</p>
+                      
+                      <h4>Key Objectives</h4>
+                      <ul>
+                        <li>Raise awareness about the limitations of the current ADA-only treasury</li>
+                        <li>Present the benefits of multi-asset treasury support</li>
+                        <li>Gather community feedback and concerns</li>
+                        <li>Build consensus around the initiative</li>
+                      </ul>
+                      
+                      <h4>Community Response</h4>
+                      <p>The post received significant engagement from the Cardano community, with constructive feedback and questions that helped shape the subsequent CPS development.</p>
+                    `
+                  })}
                 >
                   Draft & publish an initial CMAT introduction post on the Cardano Forum
                 </TaskCard>
@@ -120,6 +171,17 @@ export default function Page() {
                     { label: "Draft", url: "https://hackmd.io/@Mesh-Team/BkfaE1Z0ge" },
                     { label: "Github", url: "https://github.com/cardano-foundation/CIPs/pull/1103" }
                   ]}
+                  onClick={() => handleTaskClick({
+                    title: "Draft & Publish CMAT CPS",
+                    description: "Draft & publish the initial CPS (Cardano Problem Statement)",
+                    status: "done",
+                    assignees: ["Hinson", "Felix", "Nicolas"],
+                    date: "October",
+                    links: [
+                      { label: "Draft", url: "https://hackmd.io/@Mesh-Team/BkfaE1Z0ge" },
+                      { label: "Github", url: "https://github.com/cardano-foundation/CIPs/pull/1103" }
+                    ]
+                  })}
                 >
                   Draft & publish the initial CPS (Cardano Problem Statement)
                 </TaskCard>
@@ -141,6 +203,14 @@ export default function Page() {
                   links={[
                     { label: "Event", url: "https://ambassador-workshop.netlify.app/agenda/" }
                   ]}
+                  onClick={() => handleTaskClick({
+                    title: "Ambassador CMAT Session",
+                    description: "Prepare and host a CMAT session at the Cardano Ambassadors workshop",
+                    status: "planned",
+                    assignees: ["Hinson", "Felix"],
+                    date: "November 8",
+                    links: [{ label: "Event", url: "https://ambassador-workshop.netlify.app/agenda/" }]
+                  })}
                 >
                   Prepare and host a CMAT session at the Cardano Ambassadors workshop
                 </TaskCard>
@@ -153,6 +223,14 @@ export default function Page() {
                   links={[
                     { label: "Event", url: "https://luma.com/geuyhoq1" }
                   ]}
+                  onClick={() => handleTaskClick({
+                    title: "Cardano Summit Workshop",
+                    description: "Prepare and host a CMAT workshop at the Cardano Summit Day0 Event",
+                    status: "planned",
+                    assignees: ["Hinson", "Felix", "Nicolas"],
+                    date: "November 11",
+                    links: [{ label: "Event", url: "https://luma.com/geuyhoq1" }]
+                  })}
                 >
                   Prepare and host a CMAT workshop at the Cardano Summit Day0 Event
                 </TaskCard>
@@ -162,6 +240,13 @@ export default function Page() {
                   status="planned"
                   assignees={["Hinson", "Nicolas", "Sam", "Yogi"]}
                   date="November 11"
+                  onClick={() => handleTaskClick({
+                    title: "Cardano Summit Roundtable",
+                    description: "Prepare and host a CAMT Roundtable discussion on Summit Day0 Event",
+                    status: "planned",
+                    assignees: ["Hinson", "Nicolas", "Sam", "Yogi"],
+                    date: "November 11"
+                  })}
                 >
                   Prepare and host a CAMT Roundtable discussion on Summit Day0 Event
                 </TaskCard>
@@ -171,6 +256,13 @@ export default function Page() {
                   status="planned"
                   assignees={["Hinson", "Felix", "Nicolas"]}
                   date="December"
+                  onClick={() => handleTaskClick({
+                    title: "CPS becomes CIP",
+                    description: "Draft & submit the initial CMAT CIP (Cardano Improvement Proposal) based on the initial CMAT CPS (Cardano Problem Statement)",
+                    status: "planned",
+                    assignees: ["Hinson", "Felix", "Nicolas"],
+                    date: "December"
+                  })}
                 >
                   Draft & submit the initial CMAT CIP (Cardano Improvement Proposal) based on the initial CMAT CPS (Cardano Problem Statement)
                 </TaskCard>
@@ -189,6 +281,13 @@ export default function Page() {
                   status="upcoming"
                   assignees={["Hinson"]}
                   date="January"
+                  onClick={() => handleTaskClick({
+                    title: "Submit CMAT Info Action",
+                    description: "Submit an info action to introduce CMAT CIP to voters",
+                    status: "upcoming",
+                    assignees: ["Hinson"],
+                    date: "January"
+                  })}
                 >
                   Submit an info action to introduce CMAT CIP to voters
                 </TaskCard>
@@ -198,6 +297,13 @@ export default function Page() {
                   status="upcoming"
                   assignees={["Hinson"]}
                   date="January"
+                  onClick={() => handleTaskClick({
+                    title: "Submit CMAT Constitution updates",
+                    description: "Submit a \"Update to the constitution\" gov action according to CMAT requirements",
+                    status: "upcoming",
+                    assignees: ["Hinson"],
+                    date: "January"
+                  })}
                 >
                   Submit a "Update to the constitution" gov action according to CMAT requirements
                 </TaskCard>
@@ -207,6 +313,13 @@ export default function Page() {
                   status="upcoming"
                   assignees={["Hinson"]}
                   date="January"
+                  onClick={() => handleTaskClick({
+                    title: "Submit CMAT Hard Fork Initiation",
+                    description: "Submit a \"Hard Fork Initiation\" gov action to initiate the CMAT Hard Fork",
+                    status: "upcoming",
+                    assignees: ["Hinson"],
+                    date: "January"
+                  })}
                 >
                   Submit a "Hard Fork Initiation" gov action to initiate the CMAT Hard Fork
                 </TaskCard>
@@ -221,6 +334,83 @@ export default function Page() {
 
       {/* Final divider - full width */}
       <SimpleDivider width="full" thickness="thin" className="my-12" />
+      
+      {/* Side Panel */}
+      {selectedTask && (
+        <SidePanel
+          isOpen={isPanelOpen}
+          onClose={handleClosePanel}
+          title={selectedTask.title}
+        >
+          <div className="space-y-0">
+            {/* Status */}
+            <div className="pb-6">
+              <span className="text-xs px-2 py-1 border border-gray-800 text-gray-400">
+                {selectedTask.status.toUpperCase()}
+              </span>
+            </div>
+            
+            <div className="border-t border-gray-800"></div>
+            
+            {/* Description */}
+            <div className="pt-6">
+              <h3 className="text-white font-medium mb-2">Description</h3>
+              <p className="text-gray-300">{selectedTask.description}</p>
+            </div>
+            
+            {/* Metadata */}
+            {(selectedTask.assignees || selectedTask.date) && (
+              <>
+                <div className="border-t border-gray-800 mt-6"></div>
+                <div className="space-y-3 pt-6">
+                  {selectedTask.assignees && selectedTask.assignees.length > 0 && (
+                    <div>
+                      <span className="text-gray-400 text-sm font-medium">Charge:</span>
+                      <p className="text-white">{selectedTask.assignees.join(", ")}</p>
+                    </div>
+                  )}
+                  {selectedTask.date && (
+                    <div>
+                      <span className="text-gray-400 text-sm font-medium">Date:</span>
+                      <p className="text-white">{selectedTask.date}</p>
+                    </div>
+                  )}
+                </div>
+              </>
+            )}
+            
+            {/* Additional Content */}
+            {selectedTask.additionalContent && (
+              <>
+                <div className="border-t border-gray-800 mt-6"></div>
+                <div className="pt-6 [&_*]:text-gray-300 [&_p]:mb-4 [&_h4]:text-white [&_h4]:font-medium [&_h4]:mb-2 [&_h4]:mt-6 [&_h4:first-of-type]:mt-0 [&_h4]:text-lg [&_h4]:border-t [&_h4]:border-gray-800 [&_h4]:pt-4 [&_h4:first-of-type]:border-t-0 [&_h4:first-of-type]:pt-0 [&_ul]:list-disc [&_ul]:ml-6 [&_ul]:space-y-2 [&_ol]:list-decimal [&_ol]:ml-6 [&_ol]:space-y-2 [&_a]:text-white [&_a]:underline [&_a]:hover:text-gray-300 [&_strong]:text-white [&_code]:bg-gray-900 [&_code]:px-1 [&_code]:rounded">
+                  <div dangerouslySetInnerHTML={{ __html: selectedTask.additionalContent }} />
+                </div>
+              </>
+            )}
+            
+            {/* Links */}
+            {selectedTask.links && selectedTask.links.length > 0 && (
+              <>
+                <div className="border-t border-gray-800 mt-6"></div>
+                <div className="flex flex-wrap gap-2 pt-6">
+                  {selectedTask.links.map((link, index) => (
+                    <a
+                      key={index}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs bg-white text-black border border-gray-300 rounded-none px-3 py-2 transition-colors hover:bg-black hover:text-white hover:border-white"
+                    >
+                      {link.label} →
+                    </a>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+        </SidePanel>
+      )}
     </div>
   );
 }
