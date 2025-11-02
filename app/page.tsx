@@ -12,7 +12,7 @@ export default function Page() {
               </h1>
               <p className="text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-300 overflow-hidden text-ellipsis max-w-full">
                 <span className="whitespace-nowrap sm:whitespace-normal md:whitespace-nowrap">
-                  BUILDING GOVERNANCE 3.0 ON CARDANO 
+                  BUILDING OPEN SOURCE GOVERNANCE 3.0 ON CARDANO 
                 </span>
               </p>
               <div className="h-48 md:h-64" />
@@ -21,7 +21,6 @@ export default function Page() {
         </div>
       </Container>
       
-      {/* Fibonacci blocks SVG - full width */}
       <div className="w-full">
         <img 
           src="/fiboblockz.svg" 
@@ -30,7 +29,6 @@ export default function Page() {
         />
       </div>
       
-      {/* Visual logos - horizontal layout */}
       <Container className="py-32 md:py-48">
         <div className="flex justify-center items-center gap-12 md:gap-20">
           <a 

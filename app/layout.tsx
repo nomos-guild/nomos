@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import CustomScrollbar from "./components/CustomScrollbar";
+import CustomCursor from "./components/CustomCursor";
+import RotatingLogo from "./components/RotatingLogo";
 
 // Load Inter font from Google Fonts
 const inter = Inter({
@@ -32,12 +34,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} flex flex-col min-h-screen`}>
+        <CustomCursor />
         <CustomScrollbar />
         <Header />
         <main className="flex-grow">
           {children}
         </main>
         <Footer />
+        <RotatingLogo />
       </body>
     </html>
   );

@@ -37,7 +37,6 @@ export default function Page() {
 
   return (
     <div className="bg-black">
-      {/* Hero Section - Added top padding */}
       <div className="min-h-[40vh] pt-16 md:pt-24">
         <Container className="h-full">
           <div className="flex h-full flex-col justify-center py-6">
@@ -55,8 +54,7 @@ export default function Page() {
         </Container>
       </div>
       
-      {/* Fibonacci blocks SVG - full width */}
-      <div className="w-full">
+     <div className="w-full">
         <img 
           src="/fiboblockz.svg" 
           alt="Fibonacci Blocks Pattern" 
@@ -64,21 +62,18 @@ export default function Page() {
         />
       </div>
       
-      {/* Spacer above Connecting dots */}
       <div className="h-64 md:h-96" />
 
-      {/* Connecting dots */}
       <div className="py-16 md:py-24">
         <Container>
-          <h2 className="text-5xl md:text-6xl font-bold mb-4 text-white">Connecting dots . . .</h2>
-          <p className="text-gray-400 max-w-3xl mb-8">
-            Mesh & SIDAN Labs are busy building on Cardano Governance, current projects & efforts will be syncronised and coordinated to provide more complete solutions for Ada holders to engage at Cardano Governance . . . 
+          <h2 className="text-5xl md:text-8xl font-bold mb-9 text-white">Connecting dots . . .</h2>
+          <p className="text-gray-400 max-w-3xl mb-9">
+            Mesh & SIDAN Labs are busy building on Cardano Governance. Through Nomos, our projects & efforts will be syncronised and coordinated to provide more complete solutions for Ada holders to engage at Cardano Governance
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Tooling Column */}
-            <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 border-b border-gray-800 pb-2">Tooling</h3>
+            <div className="md:border-r md:border-white md:pr-8">
+              <h3 className="text-2xl md:text-3xl font-bold bg-white text-black mb-4 px-4 py-2 block">Tooling</h3>
               <div className="text-gray-400 text-sm mb-4">Supporting builders with utilities and dev-first kits.</div>
               <div className="space-y-4">
                 <TaskCard 
@@ -105,9 +100,8 @@ export default function Page() {
               </div>
             </div>
 
-            {/* Products Column */}
-            <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 border-b border-gray-800 pb-2">Products</h3>
+            <div className="md:border-r md:border-white md:pr-8">
+              <h3 className="text-2xl md:text-3xl font-bold bg-white text-black mb-4 px-4 py-2 block">Products</h3>
               <div className="text-gray-400 text-sm mb-4">User-facing apps that make governance accessible.</div>
               <div className="space-y-4">
                 <TaskCard 
@@ -127,20 +121,21 @@ export default function Page() {
                 <TaskCard 
                   title="CGOV" 
                   owner="NOMOS"
+                  href="https://nomos.cgov.io/cgov"
                 >
                   A governance platform with rich features to allow anyone to easily engage in Cardano Governance
                 </TaskCard>
               </div>
             </div>
 
-            {/* Architecture Column */}
             <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 border-b border-gray-800 pb-2">Architecture</h3>
+              <h3 className="text-2xl md:text-3xl font-bold bg-white text-black mb-4 px-4 py-2 block">Architecture</h3>
               <div className="text-gray-400 text-sm mb-4">Governance Architecture improvements .</div>
               <div className="space-y-4">
                 <TaskCard 
                   title="Cardano Multi Asset Treasury" 
                   owner="NOMOS"
+                  href="https://nomos.cgov.io/cmat"
                 >
                   Introducing multi-asset features for the Cardano onchain treasury
                 </TaskCard>
@@ -150,7 +145,6 @@ export default function Page() {
         </Container>
       </div>
 
-      {/* Spacer below Connecting dots */}
       <div className="h-64 md:h-96" />
     </div>
   );

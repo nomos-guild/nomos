@@ -14,7 +14,7 @@ type TaskData = {
   assignees?: string[];
   date?: string;
   links?: { label: string; url: string }[];
-  additionalContent?: string; // HTML content for additional details
+  additionalContent?: string; 
 };
 
 export default function Page() {
@@ -32,7 +32,6 @@ export default function Page() {
 
   return (
     <div className="bg-black">
-      {/* Hero Section - Added top padding */}
       <div className="min-h-[40vh] pt-16 md:pt-24"> 
         <Container className="h-full">
           <div className="flex h-full flex-col justify-center py-6">
@@ -55,7 +54,6 @@ export default function Page() {
         </Container>
       </div>
       
-      {/* Fibonacci blocks SVG - full width */}
       <div className="w-full mt-20">
         <img 
           src="/fiboblockz.svg" 
@@ -64,13 +62,11 @@ export default function Page() {
         />
       </div>
       
-      {/* Spacer for more breathing room */}
       <div className="h-32 md:h-120"></div>
       
-      {/* About Section */}
       <div className="py-8">
         <Container>
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">ABOUT</h2>
+          <h2 className="text-3xl md:text-8xl font-bold mb-6 text-white">ABOUT</h2>
           
           <p className="text-gray-300 mb-8 max-w-3xl">
             Cardano&apos;s on-chain treasury (part of the Voltaire governance era) currently holds funds in ADA only.
@@ -80,21 +76,18 @@ export default function Page() {
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {/* Card 1 - Block at top */}
             <Card title="Purpose" blockPosition="top">
               <p>
                 To improve Treasury sustainability by introducing a Multi Asset Treasury, allowing the Cardano Treasury to not only receive and distribute Ada but to handle a wide rnge of assets.
               </p>
             </Card>
             
-            {/* Card 2 - Block in middle */}
             <Card title="Features" blockPosition="middle">
               <p>
                 CMAT will introduce specific features which ensure a secure and stable management of treasury assets, while staying fully compatible to Cardano onchain governance (CIP1694)
               </p>
             </Card>
             
-            {/* Card 3 - Block at bottom */}
             <Card title="Benefits" blockPosition="bottom">
               <p>
                 By implementing CMAT, the Treasury enables a wide range of economic possibilites and yet untapped opportunities
@@ -104,23 +97,19 @@ export default function Page() {
         </Container>
       </div>
       
-    {/* Spacer for more breathing room */}
     <div className="h-32 md:h-120"></div>
 
-      {/* Simple white bar divider - full width */}
       <SimpleDivider width="full" thickness="thin" className="my-12" />
       
-      {/* Roadmap Section */}
       <div className="py-8">
         <Container>
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-white">ROADMAP (WIP)</h2>
+          <h2 className="text-3xl md:text-8xl font-bold mb-8 text-white">ROADMAP</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Ideation Column */}
-            <div>
-              <h3 className="text-xl font-bold text-white mb-4 border-b border-gray-800 pb-2">IDEATION</h3>
+            <div className="md:border-r md:border-white md:pr-8">
+              <h3 className="text-xl font-bold bg-white text-black mb-4 px-4 py-2 block">IDEATION</h3>
               <div className="text-gray-400 text-sm mb-4">
-                Async and in-person initiatives to share ideas, get feedback and ideate the multi asset treasury.
+                Initial thoughts and documents to introduce the concept of a multi asset treasury.
               </div>
               <div className="space-y-4">
                 <TaskCard 
@@ -188,11 +177,10 @@ export default function Page() {
               </div>
             </div>
             
-            {/* Design Column */}
-            <div>
-              <h3 className="text-xl font-bold text-white mb-4 border-b border-gray-800 pb-2">DESIGN</h3>
+            <div className="md:border-r md:border-white md:pr-8">
+              <h3 className="text-xl font-bold bg-white text-black mb-4 px-4 py-2 block">DESIGN</h3>
               <div className="text-gray-400 text-sm mb-4">
-                Design and submit respective CPSs and CIPs to propose design decisions.
+                Online and offline events to share ideas, get feedback and insights to design intitial concepts.
               </div>
               <div className="space-y-4">
                 <TaskCard 
@@ -269,11 +257,10 @@ export default function Page() {
               </div>
             </div>
             
-            {/* Implementation Column */}
             <div>
-              <h3 className="text-xl font-bold text-white mb-4 border-b border-gray-800 pb-2">IMPLEMENTATION</h3>
+              <h3 className="text-xl font-bold bg-white text-black mb-4 px-4 py-2 block">IMPLEMENTATION</h3>
               <div className="text-gray-400 text-sm mb-4">
-                Respective governance actions will be submitted to implement the multi asset treasury.
+                Respective governance actions to propose the implemention of the multi asset treasury on all required layers.
               </div>
               <div className="space-y-4">
                 <TaskCard 
@@ -329,13 +316,10 @@ export default function Page() {
         </Container>
       </div>
 
-        {/* Spacer for more breathing room */}
         <div className="h-32 md:h-120"></div>
 
-      {/* Final divider - full width */}
       <SimpleDivider width="full" thickness="thin" className="my-12" />
       
-      {/* Side Panel */}
       {selectedTask && (
         <SidePanel
           isOpen={isPanelOpen}
@@ -343,7 +327,6 @@ export default function Page() {
           title={selectedTask.title}
         >
           <div className="space-y-0">
-            {/* Status */}
             <div className="pb-6">
               <span className="text-xs px-2 py-1 border border-gray-800 text-gray-400">
                 {selectedTask.status.toUpperCase()}
@@ -352,13 +335,11 @@ export default function Page() {
             
             <div className="border-t border-gray-800"></div>
             
-            {/* Description */}
             <div className="pt-6">
               <h3 className="text-white font-medium mb-2">Description</h3>
               <p className="text-gray-300">{selectedTask.description}</p>
             </div>
             
-            {/* Metadata */}
             {(selectedTask.assignees || selectedTask.date) && (
               <>
                 <div className="border-t border-gray-800 mt-6"></div>
@@ -379,7 +360,6 @@ export default function Page() {
               </>
             )}
             
-            {/* Additional Content */}
             {selectedTask.additionalContent && (
               <>
                 <div className="border-t border-gray-800 mt-6"></div>
@@ -389,7 +369,6 @@ export default function Page() {
               </>
             )}
             
-            {/* Links */}
             {selectedTask.links && selectedTask.links.length > 0 && (
               <>
                 <div className="border-t border-gray-800 mt-6"></div>
