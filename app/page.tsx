@@ -12,7 +12,7 @@ export default function Page() {
               </h1>
               <p className="text-lg sm:text-xl md:text-2xl leading-relaxed text-gray-300 overflow-hidden text-ellipsis max-w-full">
                 <span className="whitespace-nowrap sm:whitespace-normal md:whitespace-nowrap">
-                  BUILDING OPEN SOURCE GOVERNANCE 3.0 ON CARDANO 
+                  BUILDING OPEN SOURCE GOVERNANCE ON CARDANO 
                 </span>
               </p>
               <div className="h-48 md:h-64" />

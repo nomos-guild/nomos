@@ -9,11 +9,12 @@ import { useEffect, useRef, useState } from "react";
 type TaskData = {
   title: string;
   description: string;
-  status?: "todo" | "in_progress" | "done";
+  status?: "done" | "in_progress" | "planned" | "upcoming";
   objective?: string;
   developers?: string[];
   link?: { label: string; url: string };
   cardPreview: string;
+  date?: string;
 };
 
 type CardCategory = {
@@ -29,31 +30,31 @@ const cardData: CardCategory[] = [
     cards: [
       {
         title: "Proposal Viewer Tool",
-        cardPreview: "A tool to view proposals as well as respective votes and voting rationales",
-        
-        description: "A tool to view proposals as well as respective votes and voting rationales",
+        cardPreview: "To read proposals and voting rationales and to get voting overview & insights",
+        description: "To read proposals and voting rationales and to get voting overview & insights",
+        status: "done", 
+        date: "January 2025",
+        objective: "Provide a fancy & friendly interface to view and analyze onchain proposals",
+        developers: ["Mesh & SIDAN Lab"],
+        link: { label: "More", url: "https://app.cgov.io/" }
+      },
+      {
+        title: "Proposal Voting Tool",
+        cardPreview: "A Tool for DReps to submit votes on submitted onchain proposals",
+        description: "A Tool for DReps to submit votes on submitted onchain proposals",
         status: "in_progress", 
-        objective: "Making it easy to view proposals and voting rationals, solving the current issues of explorers not ebing able to display correct informations due to different voting mechaics used by DReps when casting votes and submitting their rationales",
+        date: "February 2026",
+        objective: "Facilitate voting for DReps on governance proposals",
         developers: ["Mesh & SIDAN Lab"],
         link: { label: "More", url: "#" }
       },
       {
         title: "Proposal Submission Tool",
         cardPreview: "A tool to submit any types of onchain proposals through a deposit crowdfunding smart contract",
-
         description: "A tool to submit any types of onchain proposals through a deposit crowdfunding smart contract",
         status: "in_progress", 
-        objective: "To make it more easy and financially affordable for anyone to submit onchain proposals",
-        developers: ["Mesh & SIDAN Lab"],
-        link: { label: "More", url: "#" }
-      },
-      {
-        title: "Proposal Voting Tool",
-        cardPreview: "A Tool for DReps and SPOs to submit votes on submitted onchain proposals",
-
-        description: "A Tool for DReps and SPOs to submit votes on submitted onchain proposals",
-        status: "todo", 
-        objective: "Facilitate voting for DReps and SPOs on governance proposals",
+        date: "February - March 2026",
+        objective: "To make it more easy and financially affordable for anyone to submit onchain proposals through a smart contract feature which allows anyone to contribute to the deposit needed to submit a onchain proposal",
         developers: ["Mesh & SIDAN Lab"],
         link: { label: "More", url: "#" }
       }
@@ -64,32 +65,32 @@ const cardData: CardCategory[] = [
     description: "CGOV Platform features & enhancements",
     cards: [
       {
+        title: "Treasury Dashboard & Analytics",
+        cardPreview: "Dashboard to track and display treasury statistics and metrics",       
+        description: "Dashboard to track and display treasury statistics and metrics",
+        status: "planned", 
+        date: "February - March 2026",
+        objective: "Provide comprehensive treasury insights and analytics",
+        developers: ["Mesh & SIDAN Lab"],
+        link: { label: "More", url: "#" }
+      },
+      {
         title: "User Accounts & Onchain ID",
         cardPreview: "Allowing users to create individual & team accounts via a onchain ID solution",
-
         description: "Allowing users to create individual & team accounts via a onchain ID solution",
-        status: "todo", 
+        status: "planned", 
+        date: "TBD",
         objective: "To ensure quality engagments and to prevent bot activities taking over important discussions",
         developers: ["Mesh & SIDAN Lab"],
         link: { label: "More", url: "#" }
       },
       {
-        title: "Proposal Dashboard & Forum",
-        cardPreview: "To display Proposals and details as well as a forum feature to discuss proposals",
-
+        title: "Proposal Forum",
+        cardPreview: "Proposal forum feature for users to discuss proposals",
         description: "To display Proposals and details as well as a forum feature to discuss proposals",
-        status: "todo", 
+        status: "planned", 
+        date: "TBD",
         objective: "To have a overview on all past and active proposals and to allow users with onchin id to engage in proposal specific threads aka forum",
-        developers: ["Mesh & SIDAN Lab"],
-        link: { label: "More", url: "#" }
-      },
-      {
-        title: "Treasury Dashboard & Analytics",
-        cardPreview: "Dashboard to track and display treasury statistics and metrics",
-        
-        description: "Dashboard to track and display treasury statistics and metrics",
-        status: "todo", 
-        objective: "Provide comprehensive treasury insights and analytics",
         developers: ["Mesh & SIDAN Lab"],
         link: { label: "More", url: "#" }
       }
@@ -101,20 +102,20 @@ const cardData: CardCategory[] = [
     cards: [
       {
         title: "Platform APIs",
-        cardPreview: "Well documented APIs to allow 3rd party integrations with CGOV platform",
-        
+        cardPreview: "Well documented APIs to allow 3rd party integrations with CGOV platform",       
         description: "Well documented APIs to allow 3rd party integrations with CGOV platform",
-        status: "todo", 
+        status: "planned", 
+        date: "TBD",
         objective: "Enable third-party integrations through comprehensive APIs",
         developers: ["Mesh & SIDAN Lab"],
         link: { label: "More", url: "#" }
       },
       {
         title: "Docs & Guides",
-        cardPreview: "Comprehensive documentation and guides for users and developers",
-        
+        cardPreview: "Comprehensive documentation and guides for users and developers",       
         description: "Comprehensive documentation and guides for users and developers",
-        status: "todo", 
+        status: "planned", 
+        date: "TBD",
         objective: "Provide clear documentation for platform users and developers",
         developers: ["Mesh & SIDAN Lab"],
         link: { label: "More", url: "#" }
@@ -215,6 +216,8 @@ export default function Page() {
                     <TaskCard
                       key={cardIndex}
                       title={card.title}
+                      status={card.status}
+                      date={card.date}
                       onClick={() => handleTaskClick(card)}
                     >
                       {card.cardPreview}
@@ -223,6 +226,127 @@ export default function Page() {
                 </div>
               </div>
             ))}
+          </div>
+        </Container>
+      </div>
+
+      <div className="h-64 md:h-96" />
+
+      <div className="py-16 md:py-24">
+        <Container>
+          <h2 className="text-5xl md:text-8xl font-bold mb-9 text-white">DEPLOYMENT FLOW . . .</h2>
+          <p className="text-gray-400 max-w-3xl mb-12">
+            The CGOV platform will be deployed in phases, starting with core tools and progressing to integrated platform features.
+          </p>
+
+          {/* V1 Section */}
+          <div className="mb-16 md:mb-24">
+            <div className="flex items-center gap-4 mb-8">
+              <div className="bg-white text-black px-6 py-3 text-2xl md:text-4xl font-bold">
+                V1
+              </div>
+              <div className="h-1 flex-1 bg-white"></div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+              <div className="relative">
+                <div className="mb-4">
+                  <span className="text-xs px-3 py-1 border border-white text-white bg-black">
+                    MILESTONE 1
+                  </span>
+                </div>
+                <TaskCard
+                  title="Proposal Viewer Tool"
+                  onClick={() => handleTaskClick(cardData[0].cards[0])}
+                >
+                  {cardData[0].cards[0].cardPreview}
+                </TaskCard>
+              </div>
+              
+              <div className="relative">
+                <div className="mb-4">
+                  <span className="text-xs px-3 py-1 border border-white text-white bg-black">
+                    MILESTONE 2
+                  </span>
+                </div>
+                <TaskCard
+                  title="Proposal Submission Tool"
+                  onClick={() => handleTaskClick(cardData[0].cards[1])}
+                >
+                  {cardData[0].cards[1].cardPreview}
+                </TaskCard>
+              </div>
+              
+              <div className="relative">
+                <div className="mb-4">
+                  <span className="text-xs px-3 py-1 border border-white text-white bg-black">
+                    MILESTONE 3
+                  </span>
+                </div>
+                <TaskCard
+                  title="Proposal Voting Tool"
+                  onClick={() => handleTaskClick(cardData[0].cards[2])}
+                >
+                  {cardData[0].cards[2].cardPreview}
+                </TaskCard>
+              </div>
+            </div>
+          </div>
+
+    
+
+          {/* V2 Section */}
+          <div>
+            <div className="flex items-center gap-4 mb-8">
+              <div className="bg-white text-black px-6 py-3 text-2xl md:text-4xl font-bold">
+                V2
+              </div>
+              <div className="h-1 flex-1 bg-white"></div>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+              <div className="relative">
+                <div className="mb-4">
+                  <span className="text-xs px-3 py-1 border border-white text-white bg-black">
+                    MILESTONE 1
+                  </span>
+                </div>
+                <TaskCard
+                  title="User Accounts & Onchain ID"
+                  onClick={() => handleTaskClick(cardData[1].cards[0])}
+                >
+                  {cardData[1].cards[0].cardPreview}
+                </TaskCard>
+              </div>
+              
+              <div className="relative">
+                <div className="mb-4">
+                  <span className="text-xs px-3 py-1 border border-white text-white bg-black">
+                    MILESTONE 2
+                  </span>
+                </div>
+                <TaskCard
+                  title="Forum"
+                  onClick={() => handleTaskClick(cardData[1].cards[1])}
+                >
+                  {cardData[1].cards[1].cardPreview}
+                </TaskCard>
+              </div>
+              
+              <div className="relative">
+                <div className="mb-4">
+                  <span className="text-xs px-3 py-1 border border-white text-white bg-black">
+                    MILESTONE 3
+                  </span>
+                </div>
+                <TaskCard
+                  title="Treasury Dashboard & Analytics"
+                  onClick={() => handleTaskClick(cardData[1].cards[2])}
+                >
+                  {cardData[1].cards[2].cardPreview}
+                </TaskCard>
+              </div>
+            </div>
           </div>
         </Container>
       </div>
@@ -247,7 +371,7 @@ export default function Page() {
                       ? "bg-white text-black border-white"
                       : "border-white text-white"
                   }`}>
-                    {selectedTask.status === "todo" ? "TODO" : selectedTask.status === "in_progress" ? "IN PROGRESS" : "DONE"}
+                    {selectedTask.status === "planned" ? "PLANNED" : selectedTask.status === "in_progress" ? "IN PROGRESS" : selectedTask.status === "upcoming" ? "UPCOMING" : "DONE"}
                   </span>
                 </div>
                 <div className="border-t border-white"></div>

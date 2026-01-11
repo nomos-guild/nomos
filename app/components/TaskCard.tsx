@@ -50,14 +50,19 @@ export default function TaskCard({
             </span>
           ) : null}
         </div>
-        
-        {/* Task meta information */}
-        {(assignees || date) && (
-          <div className="flex flex-col text-xs text-gray-400 mb-3">
-            {assignees && assignees.length > 0 && (
-              <div className="mb-1">
-                <span className="font-medium">Charge:</span> {assignees.join(", ")}
-              </div>
+
+        {/* Task description */}
+        <div className="text-gray-300 text-sm mb-3">
+          {children}
+        </div>
+
+        {/* Status and Date row */}
+        {(status || date) && (
+          <div className="flex items-center gap-3 text-xs text-gray-400 mt-3">
+            {status && (
+              <span className={`px-2 py-1 ${statusStyles[status]}`}>
+                {statusLabels[status]}
+              </span>
             )}
             {date && (
               <div>
@@ -66,11 +71,15 @@ export default function TaskCard({
             )}
           </div>
         )}
-        
-        {/* Task description */}
-        <div className="text-gray-300 text-sm mb-3">
-          {children}
-        </div>
+
+        {/* Task meta information */}
+        {assignees && assignees.length > 0 && (
+          <div className="flex flex-col text-xs text-gray-400 mt-3">
+            <div>
+              <span className="font-medium">Charge:</span> {assignees.join(", ")}
+            </div>
+          </div>
+        )}
         
         {/* Task links */}
         {links && links.length > 0 && (
