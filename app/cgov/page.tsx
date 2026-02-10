@@ -42,7 +42,7 @@ const cardData: CardCategory[] = [
         title: "Proposal Voting Tool",
         cardPreview: "A Tool for DReps to submit votes on submitted onchain proposals",
         description: "A Tool for DReps to submit votes on submitted onchain proposals",
-        status: "in_progress", 
+        status: "done", 
         date: "February 2026",
         objective: "Facilitate voting for DReps on governance proposals",
         developers: ["Mesh & SIDAN Lab"],
@@ -65,10 +65,10 @@ const cardData: CardCategory[] = [
     description: "CGOV Platform features & enhancements",
     cards: [
       {
-        title: "Treasury Dashboard & Analytics",
-        cardPreview: "Dashboard to track and display treasury statistics and metrics",       
-        description: "Dashboard to track and display treasury statistics and metrics",
-        status: "planned", 
+        title: "DRp & Treasury Dashboards",
+        cardPreview: "Dashboards to track and display DRep and treasury statistics and metrics",       
+        description: "Dashboards to track and display DRep and treasury statistics and metrics",
+        status: "in_progress", 
         date: "February - March 2026",
         objective: "Provide comprehensive treasury insights and analytics",
         developers: ["Mesh & SIDAN Lab"],
