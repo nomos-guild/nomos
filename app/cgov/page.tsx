@@ -36,7 +36,7 @@ const cardData: CardCategory[] = [
         date: "January 2025",
         objective: "Provide a fancy & friendly interface to view and analyze onchain proposals",
         developers: ["Mesh & SIDAN Lab"],
-        link: { label: "More", url: "https://app.cgov.io/" }
+        link: { label: "More", url: "https://x.com/meshsdk/status/2018252029597016392" }
       },
       {
         title: "Proposal Voting Tool",
@@ -46,14 +46,14 @@ const cardData: CardCategory[] = [
         date: "February 2026",
         objective: "Facilitate voting for DReps on governance proposals",
         developers: ["Mesh & SIDAN Lab"],
-        link: { label: "More", url: "#" }
+        link: { label: "More", url: "https://x.com/Nomos_guild/status/2020810895056597105" }
       },
       {
         title: "Proposal Submission Tool",
         cardPreview: "A tool to submit any types of onchain proposals through a deposit crowdfunding smart contract",
         description: "A tool to submit any types of onchain proposals through a deposit crowdfunding smart contract",
         status: "in_progress", 
-        date: "February - March 2026",
+        date: "February 2026",
         objective: "To make it more easy and financially affordable for anyone to submit onchain proposals through a smart contract feature which allows anyone to contribute to the deposit needed to submit a onchain proposal",
         developers: ["Mesh & SIDAN Lab"],
         link: { label: "More", url: "#" }
@@ -65,12 +65,12 @@ const cardData: CardCategory[] = [
     description: "CGOV Platform features & enhancements",
     cards: [
       {
-        title: "DRp & Treasury Dashboards",
+        title: "DRep & Treasury Dashboards",
         cardPreview: "Dashboards to track and display DRep and treasury statistics and metrics",       
         description: "Dashboards to track and display DRep and treasury statistics and metrics",
         status: "in_progress", 
         date: "February - March 2026",
-        objective: "Provide comprehensive treasury insights and analytics",
+        objective: "Provide comprehensive DRep and treasury insights & analytics",
         developers: ["Mesh & SIDAN Lab"],
         link: { label: "More", url: "#" }
       },
